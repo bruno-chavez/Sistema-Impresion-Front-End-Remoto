@@ -42,7 +42,7 @@
       async login () {
         let res = await axios.post(`${this.backend}/auth/login`, this.input, { withCredentials: true });
         if (res.data.message === 'Authenticated') {
-          this.$router.push({ name: 'dashboard' })
+          this.$router.push({ name: 'userDashboard' })
         } else {
           console.log(res.data)
         }

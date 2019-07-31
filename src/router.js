@@ -8,7 +8,7 @@ import Logout from "./components/Auth/Logout";
 
 // User
 import Upload from './components/User/Upload'
-import Dashboard from './components/User/Dashboard'
+import UserDashboard from './components/User/UserDashboard'
 import Print from './components/User/Print'
 
 Vue.use(Router);
@@ -31,8 +31,8 @@ let router = new Router({
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
+      name: 'userDashboard',
+      component: UserDashboard
     },
     {
       path: '/upload',

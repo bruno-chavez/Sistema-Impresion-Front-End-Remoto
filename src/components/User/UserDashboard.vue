@@ -11,7 +11,7 @@
   import {env} from '../../mixins/env'
 
   export default {
-    name: "dashboard",
+    name: "userDashboard",
     mixins: [env],
     data() {
       return {

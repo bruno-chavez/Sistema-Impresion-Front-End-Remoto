@@ -40,7 +40,7 @@
         });
 
         if (res.data.message === 'File created') {
-          this.$router.push({ name: 'dashboard' })
+          this.$router.push({ name: 'userDashboard' })
         } else {
           console.log(res.data.message);
         }

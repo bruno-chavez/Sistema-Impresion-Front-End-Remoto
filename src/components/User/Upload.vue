@@ -24,6 +24,12 @@
       async submitFile() {
         // Selects the form
         let formData = new FormData(document.querySelector('form'));
+
+        // Looks up the file type
+        if (formData.get('file').type !== 'application/pdf') {
+          alert('File is not a pdf');
+          return;
+        }
         // Sends the request
         let res = await axios({
           method: 'post',

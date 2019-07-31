@@ -62,7 +62,7 @@
       async register() {
         let res = await axios.post(`${this.backend}/auth/register`, this.input, {withCredentials: true});
         if (res.data.message === 'Student created') {
-          this.$router.push({name: 'logout'})
+          this.$router.push({name: 'login'})
         } else {
           console.log(res.data)
         }

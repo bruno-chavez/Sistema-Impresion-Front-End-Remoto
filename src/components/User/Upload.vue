@@ -16,9 +16,7 @@
     name: 'upload',
     mixins: [env],
     data() {
-      return {
-
-      }
+      return {}
     },
     methods: {
       async submitFile() {
@@ -35,12 +33,12 @@
           method: 'post',
           url: `${this.backend}/file/upload`,
           data: formData,
-          headers: { 'content-type': 'multipart/form-data;' },
+          headers: {'content-type': 'multipart/form-data;'},
           withCredentials: true
         });
 
         if (res.data.message === 'File created') {
-          this.$router.push({ name: 'userDashboard' })
+          this.$router.push({name: 'userDashboard'})
         } else {
           console.log(res.data.message);
         }

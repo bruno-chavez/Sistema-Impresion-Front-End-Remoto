@@ -1,5 +1,5 @@
 export const env = {
-  data () {
+  data() {
     return {
       backend: 'http://localhost:8080'
     }

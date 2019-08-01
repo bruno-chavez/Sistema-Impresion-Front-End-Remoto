@@ -2,27 +2,26 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Auth
-import Login from './components/Auth/Login'
-import Register from './components/Auth/Register'
 import Logout from "./components/Auth/Logout";
 
-// User
+// Student
 import Upload from './components/User/Upload'
-import UserDashboard from './components/User/UserDashboard'
-import Print from './components/User/Print'
+import SudentDashboard from './components/User/StudentDashboard'
+import StudentLogin from "./components/User/StudentLogin";
+
+// Admin
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import AdminLogin from "./components/Admin/AdminLogin";
+import RegisterUsers from "./components/Admin/RegisterUsers";
 
 Vue.use(Router);
 
 let router = new Router({
-  routes: [{
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
+  routes: [
     {
       path: '/',
-      name: 'login',
-      component: Login
+      name: 'studentLogin',
+      component: StudentLogin
     },
     {
       path: '/logout',
@@ -30,28 +29,31 @@ let router = new Router({
       component: Logout
     },
     {
-      path: '/dashboard',
+      path: '/student/dashboard',
       name: 'userDashboard',
-      component: UserDashboard
+      component: SudentDashboard
     },
     {
-      path: '/upload',
+      path: '/student/upload',
       name: 'upload',
       component: Upload
     },
     {
-      path: '/print',
-      name: 'print',
-      component: Print
+      path: '/admin/register',
+      name: 'registerUsers',
+      component: RegisterUsers
+    },
+    {
+      path: '/admin/login',
+      name: 'adminLogin',
+      component: AdminLogin
+    },
+    {
+      path: '/admin/dashboard',
+      name: 'adminDashboard',
+      component: AdminDashboard
     }
   ]
 });
-
-/*
-router.beforeEach((to, from, next) => {
-console.log();
-next();
-});
-*/
 
 export default router

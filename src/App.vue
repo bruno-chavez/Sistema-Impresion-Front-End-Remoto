@@ -2,20 +2,28 @@
     <div id="app">
         <div id="nav">
             <template v-if="session === 'false'">
-                <router-link to="/register">Register</router-link>
+                <router-link to="/">User Login</router-link>
                 |
-                <router-link to="/">Login</router-link>
-            </template>
-            <template v-if="session !== 'false'">
-                <router-link to="/dashboard">Dashboard</router-link>
-                |
-                <router-link to="/upload">Upload</router-link>
-                |
-                <router-link to="/print">Print</router-link>
-                |
-                <router-link to="/logout">Logout</router-link>
+                <router-link to="/admin/login">Admin Login</router-link>
 
             </template>
+
+            <template v-else-if="session === 'admin'">
+                <router-link to="/admin/dashboard">Admin Dashboard</router-link>
+                |
+                <router-link to="/admin/register">Register Users</router-link>
+                |
+                <router-link to="/logout">Logout</router-link>
+            </template>
+
+            <template v-else>
+                <router-link to="/student/dashboard">Student Dashboard</router-link>
+                |
+                <router-link to="/student/upload">File Upload</router-link>
+                |
+                <router-link to="/logout">Logout</router-link>
+            </template>
+
         </div>
         <router-view/>
     </div>
@@ -40,7 +48,7 @@
       }
     },
     async created() {
-      this.checkSession()
+      this.checkSession();
     }
   }
 

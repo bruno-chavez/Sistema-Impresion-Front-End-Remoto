@@ -18,15 +18,13 @@
   import axios from 'axios/index'
   import {env} from '../../mixins/env'
   import { mdbInput, mdbBtn } from 'mdbvue';
-  import Vue from 'vue';
 
   export default {
-  name: 'Basic',
-      components: {
-        mdbInput,
-        mdbBtn
-      },
     name: 'adminLogin',
+    components: {
+      mdbInput,
+      mdbBtn
+    },
     mixins: [env],
     data() {
       return {
@@ -41,8 +39,6 @@
         let res = await axios.post(`${this.backend}/admin/login`, this.input, {withCredentials: true});
         if (res.data.message === 'Authenticated') {
           this.$router.push({name: 'adminDashboard'})
-          console.log('hola')
-          this.$parent.methodThatForcesUpdate()
         } else {
           console.log(res.data)
         }

@@ -61,3 +61,5 @@ router.beforeEach((to, from, next) => {
   eventBus.$emit('check');
   next();
 });
+
+export default router

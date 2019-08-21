@@ -17,6 +17,7 @@
       async logout() {
         await axios.delete(`${this.backend}/auth/logout`, {withCredentials: true});
         this.$router.push({name: 'studentLogin'})
+        this.$parent.methodThatForcesUpdate()
       }
     }
   }

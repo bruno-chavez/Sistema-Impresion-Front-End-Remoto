@@ -31,6 +31,7 @@
         let res = await axios.post(`${this.backend}/student/login`, this.input, {withCredentials: true});
         if (res.data.message === 'Authenticated') {
           this.$router.push({name: 'userDashboard'})
+          this.$parent.methodThatForcesUpdate()
         } else {
           console.log(res.data)
         }

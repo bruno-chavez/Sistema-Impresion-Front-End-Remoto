@@ -1,50 +1,107 @@
 <template>
     <div>
-        <img src="./assets/img/logo.png" width="50%" alt="logo"/>
+        <div style="height: 30px"></div>
+        <div style="margin-left: 40px">
+            <img src="./assets/img/logo.png" width="50%" alt="logo"/>
 
+        </div>
+
+        <div style="height: 30px"></div>
         <template>
             <mdb-navbar color="indigo" dark>
                 <mdb-navbar-brand>Sistema de Impresiones</mdb-navbar-brand>
-                <mdb-navbar-toggler>
+                <mdb-navbar-toggler >
                     <mdb-navbar-nav>
-                        <template v-if="session === 'none'">
-                            <mdb-nav-item active>
-                                <router-link to="/" class="nav-bar-item">User Login</router-link>
-                            </mdb-nav-item>
-                            <mdb-nav-item active>
-                                <router-link to="/admin/login" class="nav-bar-item">Admin Login</router-link>
-                            </mdb-nav-item>
+                        <template v-if="session === 'none'" >
+
+                                <router-link to="/" class="nav-bar-item">
+                                    <mdb-nav-item active>
+                                    Entrar
+                                    </mdb-nav-item>
+                                </router-link>
+
+
+                                <router-link to="/admin/login" class="nav-bar-item">
+                                    <mdb-nav-item active>
+                                    Entrar como Ayudante
+                                    </mdb-nav-item>
+                                </router-link>
+
                         </template>
 
                         <template v-else-if="session === 'admin'">
-                            <mdb-nav-item>
-                                <router-link to="/admin/dashboard" class="nav-bar-item">Admin Dashboard</router-link>
-                            </mdb-nav-item>
-                            <mdb-nav-item>
-                                <router-link to="/admin/register" class="nav-bar-item">Register Users</router-link>
-                            </mdb-nav-item>
-                            <mdb-nav-item>
-                                <router-link to="/logout" class="nav-bar-item">Logout</router-link>
-                            </mdb-nav-item>
+
+                                <router-link to="/admin/dashboard" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    Admin Dashboard
+                                    </mdb-nav-item>
+                                </router-link>
+
+
+                                <router-link to="/admin/register" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    Register Users
+                                    </mdb-nav-item>
+                                </router-link>
+
+
+                                <router-link to="/logout" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    Salir
+                                    </mdb-nav-item>
+                                </router-link>
                         </template>
 
                         <template v-else>
-                            <mdb-nav-item>
-                                <router-link to="/student/dashboard" class="nav-bar-item">Student Dashboard
+
+                                <router-link to="/student/dashboard" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    Student Dashboard
+                                    </mdb-nav-item>
                                 </router-link>
-                            </mdb-nav-item>
-                            <mdb-nav-item>
-                                <router-link to="/student/upload" class="nav-bar-item">File Upload</router-link>
-                            </mdb-nav-item>
-                            <mdb-nav-item>
-                                <router-link to="/logout" class="nav-bar-item">Logout</router-link>
-                            </mdb-nav-item>
+
+
+                                <router-link to="/student/upload" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    File Upload
+                                    </mdb-nav-item>
+                                </router-link>
+
+
+                                <router-link to="/logout" class="nav-bar-item">
+                                    <mdb-nav-item>
+                                    Salir
+                                    </mdb-nav-item>
+                                </router-link>
                         </template>
                     </mdb-navbar-nav>
                 </mdb-navbar-toggler>
             </mdb-navbar>
+
+            <router-view/>
+
+            <mdb-footer color="indigo" class="font-small pt-4 mt-4">
+                <mdb-container class="text-left">
+                    <mdb-row>
+                        <mdb-col sm="8">
+                            <h5 class="title"></h5>
+                            <p>Para dudas y consultas preguntar a ayudante encargado.</p>
+                        </mdb-col>
+                        <mdb-col sm="2">
+                            <h5 class="title"></h5>
+                            <ul>
+                                <li class="list-unstyled">  </li>
+                            </ul>
+                        </mdb-col>
+                    </mdb-row>
+                </mdb-container>
+                <div class="footer-copyright text-center py-3">
+                    <mdb-container fluid>
+                        &copy; 2019 ISW: Rusty Nail
+                    </mdb-container>
+                </div>
+            </mdb-footer>
         </template>
-        <router-view/>
     </div>
 </template>
 
@@ -61,7 +118,8 @@
     mdbDropdownMenu,
     mdbDropdownToggle,
     mdbDropdownItem,
-    mdbInput
+    mdbInput,
+      mdbFooter, mdbContainer, mdbRow, mdbCol
   } from 'mdbvue';
 
   export default {
@@ -75,7 +133,11 @@
       mdbNavbarNav,
       mdbNavItem,
       mdbDropdown,
-      mdbDropdownMenu
+      mdbDropdownMenu,
+        mdbFooter,
+        mdbContainer,
+        mdbRow,
+        mdbCol
     },
     data() {
       return {

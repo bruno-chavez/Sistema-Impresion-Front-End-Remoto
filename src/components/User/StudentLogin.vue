@@ -2,15 +2,15 @@
     <div id="login" style="width:50%; margin:0 auto;">
         <form>
             <div style="height: 20px"></div>
-            <p class="h4 text-center mb-4">Sign in</p>
+            <p class="h4 text-center mb-4">Identificación como Usuario</p>
             <div class="grey-text">
-                <mdb-input label="Email"
+                <mdb-input label="Correo Electronico"
                            icon="envelope"
                            type="email"
                            name="email"
                            v-model="input.email"
                            required/>
-                <mdb-input label="Password"
+                <mdb-input label="Contraseña"
                            icon="lock"
                            type="password"
                            name="password"

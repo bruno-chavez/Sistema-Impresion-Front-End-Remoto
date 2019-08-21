@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;">
         <form id="form" ref="form" style="align-content: center">
-            <div style="height: 100px"></div>
+            <div style="height: 30px"></div>
             <input type="file" name="file" required >
-            <div style="height: 20px"></div>
+            <div style="height: 60px"></div>
             <button class="btn btn-primary" type="button" v-on:click="submitFile">Upload</button>
         </form>
     </div>

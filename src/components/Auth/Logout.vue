@@ -1,16 +1,24 @@
 <template>
     <div id="logout">
-        <h1>Logout</h1>
-        <h2>Exit session?</h2>
-        <button type="button" v-on:click="logout()">Logout</button>
+        <div style="height: 30px"></div>
+        <h1 style="text-align: center">¿Desea cerrar sesión?</h1>
+
+        <div class="text-center">
+            <mdb-btn type="button" color="red" v-on:click="logout()">Login</mdb-btn>
+        </div>
     </div>
 </template>
 
 <script>
-  import axios from 'axios/index'
+  import axios from 'axios/index';
+  import {mdbInput, mdbBtn} from 'mdbvue';
 
   export default {
     name: 'logout',
+      components: {
+          mdbInput,
+          mdbBtn
+      },
     methods: {
       async logout() {
         await axios.delete(`${process.env.VUE_APP_BACKEND}/auth/logout`, {withCredentials: true});

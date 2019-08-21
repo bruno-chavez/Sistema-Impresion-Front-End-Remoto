@@ -33,14 +33,14 @@
 
                                 <router-link to="/admin/dashboard" class="nav-bar-item">
                                     <mdb-nav-item>
-                                    Admin Dashboard
+                                    Inicio de Administrador
                                     </mdb-nav-item>
                                 </router-link>
 
 
                                 <router-link to="/admin/register" class="nav-bar-item">
                                     <mdb-nav-item>
-                                    Register Users
+                                    Registrar Usuario
                                     </mdb-nav-item>
                                 </router-link>
 
@@ -56,14 +56,14 @@
 
                                 <router-link to="/student/dashboard" class="nav-bar-item">
                                     <mdb-nav-item>
-                                    Student Dashboard
+                                    Inicio
                                     </mdb-nav-item>
                                 </router-link>
 
 
                                 <router-link to="/student/upload" class="nav-bar-item">
                                     <mdb-nav-item>
-                                    File Upload
+                                    Subir Archivo
                                     </mdb-nav-item>
                                 </router-link>
 

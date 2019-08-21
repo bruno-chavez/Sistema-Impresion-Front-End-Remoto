@@ -1,16 +1,40 @@
 <template>
-    <div>
-        <div v-for="title in titles">
-            <h1 v-on:click="showFile(title)">{{title}}</h1>
+
+    <div class="container" style="align-content: center; margin:0 auto;">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width: 600%" >File Name</th>
+                        <th>Print</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="title in titles">
+                        <td>{{title}}</td>
+                        <td><button v-on:click="showFile(title)" type="button" class="btn btn-primary">Print</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
-  import axios from 'axios'
+  import axios from 'axios';
+  import { mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
 
   export default {
     name: "userDashboard",
+      components: {
+          mdbTbl,
+          mdbTblHead,
+          mdbTblBody
+      },
     data() {
       return {
         titles: []

@@ -1,21 +1,40 @@
 <template>
-    <div id="login">
-        <h1>User Login</h1>
-        <label>
-            <input type="email" name="email" v-model="input.email" placeholder="Email" required/>
-        </label>
-        <label>
-            <input type="password" name="password" v-model="input.password" placeholder="Password" required/>
-        </label>
-        <button type="button" v-on:click="login()">Login</button>
+    <div id="login" style="width:50%; margin:0 auto;">
+        <form>
+            <div style="height: 20px"></div>
+            <p class="h4 text-center mb-4">Sign in</p>
+            <div class="grey-text">
+                <mdb-input label="Email"
+                           icon="envelope"
+                           type="email"
+                           name="email"
+                           v-model="input.email"
+                           required/>
+                <mdb-input label="Password"
+                           icon="lock"
+                           type="password"
+                           name="password"
+                           v-model="input.password"
+                           required/>
+            </div>
+            <div class="text-center">
+                <mdb-btn type="button" v-on:click="login()">Login</mdb-btn>
+            </div>
+
+        </form>
     </div>
 </template>
 
 <script>
-  import axios from 'axios'
+  import axios from 'axios';
+  import {mdbInput, mdbBtn} from 'mdbvue';
 
   export default {
     name: 'studentLogin',
+      components: {
+          mdbInput,
+          mdbBtn
+      },
     data() {
       return {
         input: {

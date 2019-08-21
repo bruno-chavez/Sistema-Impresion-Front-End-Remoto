@@ -1,10 +1,21 @@
 <template>
-    <div id="login">
+    <div id="login" style="width:50%; margin:0 auto;">
         <form>
-            <p class="h4 text-center mb-4">Admin Log In
+            <div style="height: 20px"></div>
+            <p class="h4 text-center mb-4">Admin Sign in</p>
             <div class="grey-text">
-                <mdb-input type="email" name="email" v-model="input.email" placeholder="Email" required/>
-                <mdb-input type="password" name="password" v-model="input.password" placeholder="Password" required/>
+                <mdb-input label="Email"
+                           icon="envelope"
+                           type="email"
+                           name="email"
+                           v-model="input.email"
+                           required/>
+                <mdb-input label="Password"
+                           icon="lock"
+                           type="password"
+                           name="password"
+                           v-model="input.password"
+                           required/>
             </div>
             <div class="text-center">
                 <mdb-btn type="button" v-on:click="login()">Login</mdb-btn>
@@ -15,7 +26,7 @@
 </template>
 
 <script>
-  import axios from 'axios/index'
+  import axios from 'axios/index';
   import {mdbInput, mdbBtn} from 'mdbvue';
 
   export default {

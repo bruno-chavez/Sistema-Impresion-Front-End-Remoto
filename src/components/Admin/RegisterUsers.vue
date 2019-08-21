@@ -1,27 +1,47 @@
 <template>
-    <div id="register">
-        <h1>Register</h1>
-        <label>
-            <input type="text" name="name" v-model="input.name" placeholder="Name" required/>
-        </label>
-        <label>
-            <input type="email" name="email" v-model="input.email" placeholder="Email" required/>
-        </label>
-        <label>
-            <input type="password" name="password" v-model="input.password" placeholder="Password" required/>
-        </label>
-        <label>
-            <input type="text" name="type" v-model="input.type" placeholder="Type" required/>
-        </label>
-        <button type="button" v-on:click="register()">Register</button>
+    <div id="register" style="width:50%; margin:0 auto;">
+
+        <form>
+            <p class="h4 text-center mb-4"> Register</p>
+            <div class="grey-text">
+                <mdb-input label="Name"
+                           icon="user"
+                           type="text"
+                           name="name"
+                           v-model="input.name"
+                           required/>
+                <mdb-input label="Email"
+                           icon="envelope"
+                           type="email"
+                           name="email"
+                           v-model="input.email"
+                           required/>
+                <mdb-input label="Password"
+                           icon="lock"
+                           type="password"
+                           name="password"
+                           v-model="input.password"
+                           required/>
+                <mdb-input icon="address-book" type="text" name="type" v-model="input.type" label="Type" required/>
+            </div>
+            <div class="text-center">
+                <mdb-btn color="primary" type="button" v-on:click="register()">Register</mdb-btn>
+            </div>
+        </form>
+
     </div>
 </template>
 
 <script>
-  import axios from 'axios'
+  import axios from 'axios';
+  import { mdbInput, mdbBtn } from 'mdbvue';
 
   export default {
     name: 'registerUsers',
+      components: {
+          mdbInput,
+          mdbBtn
+      },
     data() {
       return {
         input: {

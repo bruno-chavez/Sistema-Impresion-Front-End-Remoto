@@ -7,14 +7,12 @@
 
 <script>
   import axios from 'axios'
-  import {env} from '../../mixins/env'
 
   export default {
     name: "admin",
-    mixins: [env],
     methods: {
       async resetPages() {
-        let res = await axios.get(`${this.backend}/admin/reset`, {withCredentials: true});
+        let res = await axios.get(`${process.env.VUE_APP_BACKEND}/admin/reset`, {withCredentials: true});
         if (res.data.message === 'Pages for students got reset') {
           alert(res.data.message)
         } else {
@@ -26,5 +24,4 @@
 </script>
 
 <style scoped>
-
 </style>

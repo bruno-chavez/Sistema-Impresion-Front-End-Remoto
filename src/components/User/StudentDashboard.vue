@@ -8,11 +8,9 @@
 
 <script>
   import axios from 'axios'
-  import {env} from '../../mixins/env'
 
   export default {
     name: "userDashboard",
-    mixins: [env],
     data() {
       return {
         titles: []
@@ -20,11 +18,11 @@
     },
     methods: {
       async showFile(title) {
-        window.open(`${this.backend}/file/download/${title}`)
+        window.open(`${process.env.VUE_APP_BACKEND}/file/download/${title}`)
       }
     },
     async created() {
-      let res = await axios.get(`${this.backend}/file/titles`, {withCredentials: true});
+      let res = await axios.get(`${process.env.VUE_APP_BACKEND}/file/titles`, {withCredentials: true});
       this.titles = res.data.titles;
     }
   }

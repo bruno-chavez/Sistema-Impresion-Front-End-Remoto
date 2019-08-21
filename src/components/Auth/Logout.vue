@@ -8,14 +8,12 @@
 
 <script>
   import axios from 'axios/index'
-  import {env} from '../../mixins/env'
 
   export default {
     name: 'logout',
-    mixins: [env],
     methods: {
       async logout() {
-        await axios.delete(`${this.backend}/auth/logout`, {withCredentials: true});
+        await axios.delete(`${process.env.VUE_APP_BACKEND}/auth/logout`, {withCredentials: true});
         this.$router.push({name: 'studentLogin'})
       }
     }

@@ -6,13 +6,14 @@ import Logout from "./components/Auth/Logout";
 
 // Student
 import Upload from './components/User/Upload'
-import SudentDashboard from './components/User/StudentDashboard'
+import StudentDashboard from './components/User/StudentDashboard'
 import StudentLogin from "./components/User/StudentLogin";
 
 // Admin
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminLogin from "./components/Admin/AdminLogin";
 import RegisterUsers from "./components/Admin/RegisterUsers";
+
 import {eventBus} from "./eventBus";
 
 Vue.use(Router);
@@ -32,7 +33,7 @@ let router = new Router({
     {
       path: '/student/dashboard',
       name: 'userDashboard',
-      component: SudentDashboard
+      component: StudentDashboard
     },
     {
       path: '/student/upload',

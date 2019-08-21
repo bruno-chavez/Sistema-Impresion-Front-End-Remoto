@@ -1,13 +1,13 @@
 <template>
     <div>
-        <img src="@/assets/img/logo.png" width="50%" alt="logo"/>
+        <img src="./assets/img/logo.png" width="50%" alt="logo"/>
 
         <template>
             <mdb-navbar color="indigo" dark>
                 <mdb-navbar-brand>Sistema de Impresiones</mdb-navbar-brand>
                 <mdb-navbar-toggler>
                     <mdb-navbar-nav>
-                        <template v-if="session === 'false'">
+                        <template v-if="session === 'none'">
                             <mdb-nav-item active>
                                 <router-link to="/" class="nav-bar-item">User Login</router-link>
                             </mdb-nav-item>
@@ -28,7 +28,7 @@
                             </mdb-nav-item>
                         </template>
 
-                        <template v-else-if="'session' === 'Regular' || 'session' === 'Memorista'">
+                        <template v-else>
                             <mdb-nav-item>
                                 <router-link to="/student/dashboard" class="nav-bar-item">Student Dashboard
                                 </router-link>
@@ -84,11 +84,8 @@
     },
     methods: {
       async checkSession() {
-        let res = await axios.get(`${this.backend}/auth/session`, {withCredentials: true});
+        let res = await axios.get(`${process.env.VUE_APP_BACKEND}/auth/session`, {withCredentials: true});
         this.session = res.data.message
-      },
-      methodThatForcesUpdate() {
-        this.checkSession();
       }
     },
     async created() {
@@ -113,6 +110,9 @@
     .nav-bar-item {
         color: white;
     }
+    .nav-bar-item :hover {
+        color: white;
+    }
 
     #nav {
         padding: 30px;
@@ -120,10 +120,10 @@
 
     #nav a {
         font-weight: bold;
-        color: #2c3e50;
+        color: white;
     }
 
     #nav a.router-link-exact-active {
-        color: #42b983;
+        color: white;
     }
 </style>

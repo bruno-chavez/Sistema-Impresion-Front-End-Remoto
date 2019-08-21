@@ -18,12 +18,10 @@
 </template>
 
 <script>
-  import axios from 'axios/index'
-  import {env} from '../../mixins/env'
+  import axios from 'axios'
 
   export default {
     name: 'registerUsers',
-    mixins: [env],
     data() {
       return {
         input: {
@@ -36,7 +34,7 @@
     },
     methods: {
       async register() {
-        let res = await axios.post(`${this.backend}/admin/register`, this.input, {withCredentials: true});
+        let res = await axios.post(`${process.env.VUE_APP_BACKEND}/admin/register`, this.input, {withCredentials: true});
         if (res.data.message === 'Student created') {
           this.$router.push({name: 'adminDashboard'})
         } else {

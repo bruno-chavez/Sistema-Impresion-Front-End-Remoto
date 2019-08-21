@@ -9,12 +9,10 @@
 </template>
 
 <script>
-  import axios from 'axios/index'
-  import {env} from '../../mixins/env'
+  import axios from 'axios'
 
   export default {
     name: 'upload',
-    mixins: [env],
     data() {
       return {}
     },
@@ -31,7 +29,7 @@
         // Sends the request
         let res = await axios({
           method: 'post',
-          url: `${this.backend}/file/upload`,
+          url: `${process.env.VUE_APP_BACKEND}/file/upload`,
           data: formData,
           headers: {'content-type': 'multipart/form-data;'},
           withCredentials: true

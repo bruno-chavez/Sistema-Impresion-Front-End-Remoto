@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <h1>Login</h1>
+        <h1>User Login</h1>
         <label>
             <input type="email" name="email" v-model="input.email" placeholder="Email" required/>
         </label>
@@ -12,12 +12,10 @@
 </template>
 
 <script>
-  import axios from 'axios/index'
-  import {env} from '../../mixins/env'
+  import axios from 'axios'
 
   export default {
     name: 'studentLogin',
-    mixins: [env],
     data() {
       return {
         input: {
@@ -28,7 +26,7 @@
     },
     methods: {
       async login() {
-        let res = await axios.post(`${this.backend}/student/login`, this.input, {withCredentials: true});
+        let res = await axios.post(`${process.env.VUE_APP_BACKEND}/student/login`, this.input, {withCredentials: true});
         if (res.data.message === 'Authenticated') {
           this.$router.push({name: 'userDashboard'})
         } else {

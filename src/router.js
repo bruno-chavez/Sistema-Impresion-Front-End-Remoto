@@ -13,6 +13,7 @@ import StudentLogin from "./components/User/StudentLogin";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminLogin from "./components/Admin/AdminLogin";
 import RegisterUsers from "./components/Admin/RegisterUsers";
+import {eventBus} from "./eventBus";
 
 Vue.use(Router);
 
@@ -56,4 +57,7 @@ let router = new Router({
   ]
 });
 
-export default router
+router.beforeEach((to, from, next) => {
+  eventBus.$emit('check');
+  next();
+});

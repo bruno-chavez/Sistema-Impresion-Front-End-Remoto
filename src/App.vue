@@ -5,7 +5,6 @@
                 <router-link to="/">User Login</router-link>
                 |
                 <router-link to="/admin/login">Admin Login</router-link>
-
             </template>
 
             <template v-else-if="session === 'admin'">
@@ -30,8 +29,10 @@
 </template>
 
 <script>
+
   import axios from 'axios'
-  import {env} from './mixins/env'
+  import { eventBus } from "./eventBus";
+  import { env } from './mixins/env'
 
   export default {
     mixins: [env],
@@ -42,14 +43,16 @@
     },
     methods: {
       async checkSession() {
-        let res = await axios.get(`${this.backend}/auth/session`, {withCredentials: true});
-        console.log(res.data.message);
+        let res = await axios.get(`${this.backend}`, {withCredentials: true});
         this.session = res.data.message
       }
     },
-    async created() {
-      this.checkSession();
-    }
+        async created() {
+          this.checkSession();
+          eventBus.$on('check', () => {
+            this.checkSession()
+          });
+        }
   }
 
 </script>

@@ -31,10 +31,10 @@
 
   export default {
     name: 'studentLogin',
-      components: {
-          mdbInput,
-          mdbBtn
-      },
+    components: {
+      mdbInput,
+      mdbBtn
+    },
     data() {
       return {
         input: {

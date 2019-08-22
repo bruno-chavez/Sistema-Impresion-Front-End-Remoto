@@ -4,25 +4,29 @@
         <form>
             <p class="h4 text-center mb-4"> Register</p>
             <div class="grey-text">
-                <mdb-input label="Name"
+                <mdb-input label="Nombre"
                            icon="user"
                            type="text"
                            name="name"
                            v-model="input.name"
                            required/>
-                <mdb-input label="Email"
+                <mdb-input label="Correo Electronico"
                            icon="envelope"
                            type="email"
                            name="email"
                            v-model="input.email"
                            required/>
-                <mdb-input label="Password"
+                <mdb-input label="Contraseña"
                            icon="lock"
                            type="password"
                            name="password"
                            v-model="input.password"
                            required/>
-                <mdb-input icon="address-book" type="text" name="type" v-model="input.type" label="Type" required/>
+                <mdb-input label="Tipo"
+                           icon="address-book"
+                           type="text"
+                           name="type"
+                           v-model="input.type" required/>
             </div>
             <div class="text-center">
                 <mdb-btn color="primary" type="button" v-on:click="register()">Register</mdb-btn>
@@ -34,14 +38,14 @@
 
 <script>
   import axios from 'axios';
-  import { mdbInput, mdbBtn } from 'mdbvue';
+  import {mdbInput, mdbBtn} from 'mdbvue';
 
   export default {
     name: 'registerUsers',
-      components: {
-          mdbInput,
-          mdbBtn
-      },
+    components: {
+      mdbInput,
+      mdbBtn
+    },
     data() {
       return {
         input: {

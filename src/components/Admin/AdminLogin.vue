@@ -2,7 +2,7 @@
     <div id="login" style="width:50%; margin:0 auto;">
         <form>
             <div style="height: 20px"></div>
-            <p class="h4 text-center mb-4">Identificación como Ayudante</p>
+            <p class="h4 text-center mb-4">Identificación como Administrador</p>
             <div class="grey-text">
                 <mdb-input label="Correo Electronico"
                            icon="envelope"

@@ -6,7 +6,7 @@
             <div style="height: 30px"></div>
             <input type="file" name="file" required >
             <div style="height: 60px"></div>
-            <button class="btn btn-primary" type="button" v-on:click="submitFile">Upload</button>
+            <mdb-btn type="button" v-on:click="submitFile">Subir Archivo</mdb-btn>
         </form>
     </div>
 
@@ -14,9 +14,13 @@
 
 <script>
   import axios from 'axios'
+  import {mdbBtn} from 'mdbvue';
 
   export default {
     name: 'upload',
+    components: {
+      mdbBtn
+    },
     data() {
       return {
           return:{

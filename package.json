@@ -8,15 +8,13 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "bootstrap": "^4.3.1",
     "bootstrap-css-only": "^4.3.1",
-    "bootstrap-vue": "^2.0.0-rc.28",
     "mdbvue": "^5.8.1",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.1.2"
   },
   "devDependencies": {
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-service": "^3.11.0",
     "vue-template-compiler": "^2.6.10"
   }
 }

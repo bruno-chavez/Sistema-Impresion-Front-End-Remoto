@@ -13,7 +13,7 @@
                     <tbody>
                     <tr v-for="title in titles">
                         <td>{{title}}</td>
-                        <td><button v-on:click="showFile(title)" type="button" class="btn btn-primary">Print</button></td>
+                        <td><mdb-btn v-on:click="showFile(title)" type="button">Mostrar</mdb-btn></td>
                     </tr>
                     </tbody>
                 </table>
@@ -26,14 +26,15 @@
 
 <script>
   import axios from 'axios';
-  import { mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
+  import { mdbTbl, mdbTblHead, mdbTblBody, mdbBtn } from 'mdbvue';
 
   export default {
     name: "userDashboard",
       components: {
           mdbTbl,
           mdbTblHead,
-          mdbTblBody
+          mdbTblBody,
+        mdbBtn
       },
     data() {
       return {

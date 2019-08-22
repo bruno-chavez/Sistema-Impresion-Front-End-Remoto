@@ -4,7 +4,7 @@
         <h1 style="text-align: center">¿Desea cerrar sesión?</h1>
 
         <div class="text-center">
-            <mdb-btn type="button" color="red" v-on:click="logout()">Login</mdb-btn>
+            <mdb-btn type="button" color="red" v-on:click="logout()">Logout</mdb-btn>
         </div>
     </div>
 </template>

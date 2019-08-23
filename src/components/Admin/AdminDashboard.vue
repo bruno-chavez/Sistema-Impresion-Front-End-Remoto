@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 v-on:click="resetPages">¿Desea reiniciar la cuenta de paginas de los alumnos?</h1>
+        <h1>¿Desea reiniciar la cuenta de paginas de los alumnos?</h1>
         <mdb-btn type="button" v-on:click="resetPages">Reiniciar</mdb-btn>
     </div>
 </template>

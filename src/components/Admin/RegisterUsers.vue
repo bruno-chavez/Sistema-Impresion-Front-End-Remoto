@@ -1,6 +1,5 @@
 <template>
     <div id="register" style="width:50%; margin:0 auto;">
-
         <form>
             <p class="h4 text-center mb-4"> Register</p>
             <div class="grey-text">

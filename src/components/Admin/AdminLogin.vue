@@ -20,7 +20,6 @@
             <div class="text-center">
                 <mdb-btn type="button" v-on:click="login()">Login</mdb-btn>
             </div>
-
         </form>
     </div>
 </template>

@@ -9,7 +9,6 @@
             <mdb-btn type="button" v-on:click="submitFile">Subir Archivo</mdb-btn>
         </form>
     </div>
-
 </template>
 
 <script>
@@ -25,7 +24,6 @@
       return {
           return:{
               file: null,
-
           }
       }
     },

@@ -1,27 +1,24 @@
 <template>
-
     <div class="container" style="align-content: center; margin:0 auto;">
         <div class="row">
             <div class="col-md-6">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th style="width: 600%" >File Name</th>
-                        <th>Print</th>
+                        <th style="width: 600%" >Nombre</th>
+                        <th>Mostrar</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="title in titles">
                         <td>{{title}}</td>
-                        <td><mdb-btn v-on:click="showFile(title)" type="button">Mostrar</mdb-btn></td>
+                        <td><mdb-btn v-on:click="printFile(title)" type="button">Mostrar</mdb-btn></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
@@ -42,8 +39,8 @@
       }
     },
     methods: {
-      async showFile(title) {
-        window.open(`${process.env.VUE_APP_BACKEND}/file/download/${title}`)
+      async printFile(title) {
+        window.open(`${process.env.VUE_APP_BACKEND}/file/fetch/show/${title}`)
       }
     },
     async created() {
@@ -54,5 +51,4 @@
 </script>
 
 <style scoped>
-
 </style>

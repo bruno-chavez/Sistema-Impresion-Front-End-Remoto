@@ -28,7 +28,7 @@
                            v-model="input.type" required/>
             </div>
             <div class="text-center">
-                <mdb-btn color="primary" type="button" v-on:click="register()">Register</mdb-btn>
+                <mdb-btn color="primary" type="button" v-on:click="register()">Registrar</mdb-btn>
             </div>
         </form>
 

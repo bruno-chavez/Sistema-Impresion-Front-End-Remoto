@@ -4,7 +4,7 @@
   justify-content: center;">
         <form id="form" ref="form" style="align-content: center">
             <div style="height: 30px"></div>
-            <input type="file" name="file" required >
+            <input type="file" name="file" required>
             <div style="height: 60px"></div>
             <mdb-btn type="button" v-on:click="submitFile">Subir Archivo</mdb-btn>
         </form>
@@ -22,9 +22,9 @@
     },
     data() {
       return {
-          return:{
-              file: null,
-          }
+        return: {
+          file: null,
+        }
       }
     },
     methods: {
@@ -50,6 +50,7 @@
           this.$router.push({name: 'userDashboard'})
         } else {
           console.log(res.data.message);
+          alert(res.data.message)
         }
       }
     },

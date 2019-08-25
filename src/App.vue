@@ -16,7 +16,7 @@
                         <template v-if="session === 'none'">
                             <router-link to="/" class="nav-bar-item">
                                 <mdb-nav-item active>
-                                    Entrar
+                                    Entrar como Usuario
                                 </mdb-nav-item>
                             </router-link>
 
@@ -30,13 +30,19 @@
                         <template v-else-if="session === 'admin'">
                             <router-link to="/admin/dashboard" class="nav-bar-item">
                                 <mdb-nav-item>
-                                    Inicio de Administrador
+                                    Inicio
                                 </mdb-nav-item>
                             </router-link>
 
                             <router-link to="/admin/register" class="nav-bar-item">
                                 <mdb-nav-item>
                                     Registrar Usuario
+                                </mdb-nav-item>
+                            </router-link>
+
+                            <router-link to="/admin/pages" class="nav-bar-item">
+                                <mdb-nav-item>
+                                    Reiniciar Paginas
                                 </mdb-nav-item>
                             </router-link>
 

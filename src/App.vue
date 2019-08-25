@@ -77,7 +77,7 @@
                     <mdb-row>
                         <mdb-col sm="8">
                             <h5 class="title"></h5>
-                            <p>Para dudas o consultas contactarse con administrador.</p>
+                            <p>Para dudas o consultas contactarse con el administrador.</p>
                         </mdb-col>
                         <mdb-col sm="2">
                             <h5 class="title"></h5>

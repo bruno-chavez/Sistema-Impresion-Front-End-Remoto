@@ -8,7 +8,8 @@
                     <tr>
                         <th style="width: 600%">Nombre</th>
                         <th>Páginas</th>
-                        <th>Imprimir</th>
+                        <th>Mostrar</th>
+                        <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -16,7 +17,10 @@
                         <td>{{doc.title}}</td>
                         <td>{{doc.pages}}</td>
                         <td>
-                            <mdb-btn v-on:click="printFile(doc.title)" type="button">Imprimir</mdb-btn>
+                            <mdb-btn v-on:click="printFile(doc.title)" type="button">Mostrar</mdb-btn>
+                        </td>
+                        <td>
+                            <mdb-btn color="danger" v-on:click="deleteFile(doc.title)" type="button">Eliminar</mdb-btn>
                         </td>
                     </tr>
                     </tbody>
@@ -28,16 +32,16 @@
 
 <script>
   import axios from 'axios';
-  import { mdbTbl, mdbTblHead, mdbTblBody, mdbBtn } from 'mdbvue';
+  import {mdbTbl, mdbTblHead, mdbTblBody, mdbBtn} from 'mdbvue';
 
   export default {
     name: "userDashboard",
-      components: {
-          mdbTbl,
-          mdbTblHead,
-          mdbTblBody,
-        mdbBtn
-      },
+    components: {
+      mdbTbl,
+      mdbTblHead,
+      mdbTblBody,
+      mdbBtn
+    },
     data() {
       return {
         documents: {},
@@ -45,9 +49,21 @@
       }
     },
     methods: {
+      async updateFiles() {
+        let documents = await axios.get(`${process.env.VUE_APP_BACKEND}/file/info`, {withCredentials: true});
+        this.documents = documents.data.documents;
+      },
       async updatePages() {
         let pages = await axios.get(`${process.env.VUE_APP_BACKEND}/student/pages`, {withCredentials: true});
         this.pages = pages.data.pages;
+      },
+      async deleteFile(title) {
+        let message = await axios.delete(`${process.env.VUE_APP_BACKEND}/file/delete/${title}`, {withCredentials: true});
+        if (message.data.message !== "file deleted") {
+          alert(message.data.message)
+        } else {
+          this.updateFiles();
+        }
       },
       async printFile(title) {
         this.updatePages();
@@ -56,8 +72,7 @@
     },
     async created() {
       this.updatePages();
-      let documents = await axios.get(`${process.env.VUE_APP_BACKEND}/file/info`, {withCredentials: true});
-      this.documents = documents.data.documents;
+      this.updateFiles();
     }
   }
 </script>

@@ -13,6 +13,7 @@ import StudentLogin from "./components/User/StudentLogin";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminLogin from "./components/Admin/AdminLogin";
 import RegisterUsers from "./components/Admin/RegisterUsers";
+import ResetPages from "./components/Admin/ResetPages";
 
 import {eventBus} from "./eventBus";
 
@@ -54,6 +55,11 @@ let router = new Router({
       path: '/admin/dashboard',
       name: 'adminDashboard',
       component: AdminDashboard
+    },
+    {
+      path: '/admin/pages',
+      name: 'resetPages',
+      component: ResetPages
     }
   ]
 });

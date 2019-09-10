@@ -17,7 +17,7 @@
       async resetPages() {
         let res = await axios.get(`${process.env.VUE_APP_BACKEND}/admin/reset`, {withCredentials: true});
         if (res.data.message === 'Pages for students got reset') {
-          alert(res.data.message)
+          alert('El contador de paginas fue reiniciado para todos los estudiantes')
         } else {
           console.log(res.data.message);
         }

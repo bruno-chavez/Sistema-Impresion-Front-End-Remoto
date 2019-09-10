@@ -1,6 +1,7 @@
 <template>
     <div class="container" style="align-content: center; margin:0 auto;">
-        <h4>Actualmente te quedan {{pages}} páginas</h4>
+        <h4>Actualmente te quedan {{info.pages}} páginas</h4>
+        <h4>Actualmente tienes {{info.docs}} documentos</h4>
         <div class="row">
             <div class="col-md-6">
                 <table class="table">
@@ -45,7 +46,10 @@
     data() {
       return {
         documents: {},
-        pages: 0
+        info: {
+          pages: 0,
+          docs: 0
+        }
       }
     },
     methods: {
@@ -54,8 +58,9 @@
         this.documents = documents.data.documents;
       },
       async updatePages() {
-        let pages = await axios.get(`${process.env.VUE_APP_BACKEND}/student/pages`, {withCredentials: true});
-        this.pages = pages.data.pages;
+        let res = await axios.get(`${process.env.VUE_APP_BACKEND}/student/info`, {withCredentials: true});
+        this.info.pages = res.data.pages;
+        this.info.docs = res.data.docs;
       },
       async deleteFile(title) {
         let message = await axios.delete(`${process.env.VUE_APP_BACKEND}/file/delete/${title}`, {withCredentials: true});

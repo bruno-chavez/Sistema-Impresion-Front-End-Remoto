@@ -34,7 +34,7 @@
 
         // Looks up the file type
         if (formData.get('file').type !== 'application/pdf') {
-          alert('File is not a pdf');
+          alert('El archivo que intenta subir no es un pdf');
           return;
         }
         // Sends the request

@@ -21,7 +21,7 @@
                            name="password"
                            v-model="input.password"
                            required/>
-                <mdb-input label="Tipo"
+                <mdb-input label="Tipo (Regular o Memorista)"
                            icon="address-book"
                            type="text"
                            name="type"
@@ -56,13 +56,17 @@
       }
     },
     methods: {
-      async register() {
-        let res = await axios.post(`${process.env.VUE_APP_BACKEND}/admin/register`, this.input, {withCredentials: true});
-        if (res.data.message === 'Student created') {
-          this.$router.push({name: 'adminDashboard'})
-        } else {
-          console.log(res.data)
-        }
+      register() {
+        axios.post(`${process.env.VUE_APP_BACKEND}/admin/register`, this.input, {withCredentials: true}).then( res => {
+          if (res.data.message === 'Student created') {
+            this.$router.push({name: 'adminDashboard'})
+          } else {
+            console.log('res.data');
+            alert('Error en el formulario')
+          }
+        }).catch(() => {
+          alert('Error en el formulario')
+        })
       }
     }
   }

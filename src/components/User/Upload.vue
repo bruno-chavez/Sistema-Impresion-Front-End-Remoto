@@ -44,7 +44,10 @@
           data: formData,
           headers: {'content-type': 'multipart/form-data;'},
           withCredentials: true
-        });
+        }).catch(() => {
+          alert('Archivo supera los 15MB maximos por archivo')
+          }
+        );
 
         if (res.data.message === 'File created') {
           this.$router.push({name: 'userDashboard'})

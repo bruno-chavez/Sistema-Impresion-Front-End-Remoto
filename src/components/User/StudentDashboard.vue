@@ -67,6 +67,7 @@
         if (message.data.message !== "file deleted") {
           alert(message.data.message)
         } else {
+          this.updatePages();
           this.updateFiles();
         }
       },

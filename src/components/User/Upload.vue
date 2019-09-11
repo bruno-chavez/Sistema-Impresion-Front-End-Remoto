@@ -51,10 +51,14 @@
 
         if (res.data.message === 'File created') {
           this.$router.push({name: 'userDashboard'})
+        } else if (res.data.message === 'Too many files for a sinlge user'){
+          alert('No puedes subir mas archivos cuando ya tienes diez archivos en la plataforma')
+        } else if (res.data.message === 'File with same name already uploaded') {
+          alert('Ya subiste un archivo con ese nombre')
         } else {
-          console.log(res.data.message);
-          alert(res.data.message)
+          alert('Error al guardar el archivo')
         }
+        console.log(res.data.message);
       }
     },
   }
